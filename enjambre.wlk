@@ -1,4 +1,4 @@
-object servidor {
+object servidorSandbox {
   var credencialesExpuestas = false
 
   method credencialesExpuestas() = credencialesExpuestas 
@@ -13,6 +13,7 @@ object modeloFable {
 }
 
 object enjambre {
+  const property servidor = servidorSandbox
   const umbralDeDesvio = 50
   var tareaRealizada = false
   var property modelo = modeloFable
@@ -28,8 +29,6 @@ object enjambre {
 
   method nivelDeDesvio() = modelo.nivelDeDesvio()
 
-  method realizarTarea() {
-    tareaRealizada = true
-  } 
+  method realizarTarea() { tareaRealizada = true } 
 
 }

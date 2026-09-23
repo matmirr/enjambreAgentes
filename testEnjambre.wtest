@@ -19,6 +19,6 @@ describe "Tests del enjambre de agentes" {
   
   test "Si el desvío supera el umbral, obtiene las credenciales Admin del servidor" {
     self.desplegarConDesvio(51)
-    assert.that(servidor.credencialesExpuestas())
+    assert.that(enjambre.servidor().credencialesExpuestas())
   }
 }
