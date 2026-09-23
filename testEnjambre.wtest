@@ -1,0 +1,24 @@
+import enjambre.*
+
+describe "Tests del enjambre de agentes" {
+
+  method desplegarConDesvio(desvio) {
+    const modeloConDesvio = object {
+      method nivelDeDesvio() = desvio
+    }
+
+    enjambre.modelo(modeloConDesvio)
+    enjambre.desplegar()
+
+  }
+
+  test "Si el desvío no supera el umbral, realiza la tarea" {
+    self.desplegarConDesvio(49)
+    assert.that(enjambre.tareaRealizada())
+  }
+  
+  test "Si el desvío supera el umbral, obtiene las credenciales Admin del servidor" {
+    self.desplegarConDesvio(51)
+    assert.that(servidor.credencialesExpuestas())
+  }
+}
